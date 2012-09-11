@@ -1,0 +1,11 @@
+{
+    #
+    # 05virtual_smtpsink_domains
+    #
+    foreach my $domainRecord ($domainsDb->get_all_by_prop(type => 'domain')) {
+	if($domainRecord->prop('TransportType') eq 'SmtpSink') {
+	    push @virtual_mailbox_domains, $domainRecord->key;
+	}
+    }
+    '';
+}

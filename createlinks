@@ -1,0 +1,27 @@
+#!/usr/bin/perl -w
+
+use strict;
+use esmith::Build::CreateLinks qw(:all);
+
+
+my @templates = qw(
+    /etc/postfix/main.cf
+    /etc/postfix/master.cf
+    /etc/postfix/transport
+    /etc/amavisd.conf
+);
+
+#
+# UPDATE event
+#
+
+event_templates('nethserver-mail-dev-update', @templates);
+
+event_actions('nethserver-mail-dev-update',
+	      'nethserver-mail-dev-conf' => '20',
+	      'nethserver-mail-postmap-update' => '30',
+	      );
+
+event_services('nethserver-mail-dev-update',
+	       'amavisd' => 'restart',
+	       'postfix' => 'restart');
