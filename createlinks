@@ -8,6 +8,7 @@ my @templates = qw(
     /etc/postfix/main.cf
     /etc/postfix/master.cf
     /etc/postfix/transport
+    /etc/postfix/vmailbox
     /etc/amavisd.conf
 );
 
