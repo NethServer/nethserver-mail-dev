@@ -4,5 +4,11 @@
     # See /sbin/e-smith/smtptest command 
     #
     push @smtpd_public_options, 'smtpd_authorized_xclient_hosts=127.0.0.1';
+
+    # If we have submission listeners push the option there, also:
+    if(defined @submission_smtpd_options) {
+	push @submission_smtpd_options, 'smtpd_authorized_xclient_hosts=127.0.0.1';
+    }
+
     '';
 }
