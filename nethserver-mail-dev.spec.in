@@ -1,0 +1,56 @@
+Summary: Development and benchmarking tools for nethserver-mail-common package
+Name: nethserver-mail-dev
+Version: @@VERSION@@
+Release: @@RELEASE@@%{?dist}
+License: GPL
+Group: System Environment/Libraries
+URL: http://dev.nethesis.it/projects/nethserver-mail-dev/
+Source0: %{name}-%{version}.tar.gz
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
+BuildArch: noarch
+
+Requires: nethserver-mail-common
+
+BuildRequires: perl
+BuildRequires: nethserver-devtools >= 6.103
+
+%description
+Benchmarking and development configuration for nethserver-mail-common package
+
+%prep
+%setup
+
+%build
+perl createlinks
+
+%install
+rm -rf $RPM_BUILD_ROOT
+(cd root; find . -depth -print | cpio -dump $RPM_BUILD_ROOT)
+%{genfilelist} $RPM_BUILD_ROOT > %{name}-%{version}-filelist
+echo "%doc COPYING" >> %{name}-%{version}-filelist
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%post
+source /etc/nethserver/rpm_hook_functions
+event_queue add %{name}-update
+
+%postun
+
+signal_event nethserver-mail-common-save
+
+# Update also amavisd.conf, if nethserver-mail-filter is installed
+if rpm --quiet -q nethserver-mail-filter; then
+    signal_event nethserver-mail-filter-save
+fi
+
+%files -f %{name}-%{version}-filelist
+%defattr(-,root,root)
+
+%changelog
+* Tue Sep 11 2012 Davide Principi <davide.principi@nethesis.it> - 6.104.1.nh 
+- initial build
+
+
+
