@@ -48,9 +48,7 @@ fi
 %files -f %{name}-%{version}-filelist
 %defattr(-,root,root)
 
+
+
 %changelog
-* Tue Sep 11 2012 Davide Principi <davide.principi@nethesis.it> - 6.104.1.nh 
-- initial build
-
-
 
