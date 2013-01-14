@@ -1,7 +1,7 @@
 Summary: Development and benchmarking tools for nethserver-mail-common package
 Name: nethserver-mail-dev
 Version: @@VERSION@@
-Release: @@RELEASE@@%{?dist}
+Release: @@RELEASE@@
 License: GPL
 Group: System Environment/Libraries
 URL: http://dev.nethesis.it/projects/nethserver-mail-dev/
