@@ -12,7 +12,7 @@ BuildArch: noarch
 Requires: nethserver-mail-common
 
 BuildRequires: perl
-BuildRequires: nethserver-devtools >= 6.103
+BuildRequires: nethserver-devtools
 
 %description
 Benchmarking and development configuration for nethserver-mail-common package
