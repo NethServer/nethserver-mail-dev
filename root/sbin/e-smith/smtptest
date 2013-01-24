@@ -33,6 +33,7 @@ use Data::Dumper;
 use Carp;
 use POSIX qw(strftime locale_h);
 
+setlocale(LC_TIME, 'C');
 
 my $timestamp = strftime("%a, %d %b %Y %H:%M:%S %z", localtime());
 
