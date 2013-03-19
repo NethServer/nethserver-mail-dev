@@ -3,10 +3,8 @@ Name: nethserver-mail-dev
 Version: @@VERSION@@
 Release: @@RELEASE@@
 License: GPL
-Group: System Environment/Libraries
 URL: %{url_prefix}/%{name} 
 Source0: %{name}-%{version}.tar.gz
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 BuildArch: noarch
 
 Requires: nethserver-mail-common
@@ -48,7 +46,8 @@ fi
 %files -f %{name}-%{version}-filelist
 %defattr(-,root,root)
 
-
-
 %changelog
+* Tue Mar 19 2013 Davide Principi <davide.principi@nethesis.it> - 1.0.1-1.ns6
+- smtptest: fixed TIME locale for message Date header
+- *.spec: use url_prefix macro in URL tag; fixed Release tag expansion; removed Group and BuildRoot tags. Refs #1654 
 
