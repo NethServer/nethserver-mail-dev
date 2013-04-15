@@ -31,8 +31,6 @@ echo "%doc COPYING" >> %{name}-%{version}-filelist
 rm -rf $RPM_BUILD_ROOT
 
 %post
-source /etc/nethserver/rpm_hook_functions
-event_queue add %{name}-update
 
 %postun
 

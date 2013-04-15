@@ -39,7 +39,6 @@ my @templates = qw(
 event_templates('nethserver-mail-dev-update', @templates);
 
 event_actions('nethserver-mail-dev-update',
-	      'nethserver-mail-dev-conf' => '20',
 	      'nethserver-mail-postmap-update' => '30',
 	      );
 
