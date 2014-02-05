@@ -45,6 +45,9 @@ fi
 %defattr(-,root,root)
 
 %changelog
+* Wed Feb 05 2014 Davide Principi <davide.principi@nethesis.it> - 1.0.3-1.ns6
+- Use XCLIENT extension only if -addr options is specified.
+
 * Tue Apr 30 2013 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 1.0.2-1.ns6
 - Rebuild for automatic package handling. #1870
 
