@@ -45,7 +45,7 @@ my %options = (
     'host' => '127.0.0.1',
     'from' => 'unspecified@example.com',
     'subject' => '',
-    'addr' => '127.0.0.1',
+    'addr' => '',
     'hello' => 'localhost.localdomain',
     'to' => 'postmaster@localhost',
     'verbose' => \$verbose
@@ -135,7 +135,9 @@ if($verbose) {
     print "Connected to " . $conn->domain() . "\n      " . $conn->banner() . "\n     " . $conn->message() . "\n";
 }
 
-$conn->command(sprintf("XCLIENT NAME=%s ADDR=%s", $options{hello}, $options{addr}))->response() == CMD_OK or die($conn->message());
+if($options{addr}) {
+    $conn->command(sprintf("XCLIENT NAME=%s ADDR=%s", $options{hello}, $options{addr}))->response() == CMD_OK or die($conn->message());
+}
 
 $conn->command(sprintf("EHLO %s", $options{hello}))->response() == CMD_OK or die($conn->message());
 
