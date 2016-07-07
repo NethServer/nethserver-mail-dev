@@ -1,6 +1,6 @@
 Summary: Development and benchmarking tools for nethserver-mail-common package
 Name: nethserver-mail-dev
-Version: 1.0.3
+Version: 1.1.0
 Release: 1%{?dist}
 License: GPL
 URL: %{url_prefix}/%{name} 
@@ -29,6 +29,9 @@ rm -rf %{buildroot}
 %dir %{_nseventsdir}/%{name}-update
 
 %changelog
+* Thu Jul 07 2016 Stefano Fancello <stefano.fancello@nethesis.it> - 1.1.0-1
+- First NS7 release
+
 * Wed Feb 05 2014 Davide Principi <davide.principi@nethesis.it> - 1.0.3-1.ns6
 - Use XCLIENT extension only if -addr options is specified.
 
